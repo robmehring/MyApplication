@@ -5,7 +5,7 @@ WORKDIR /build
 
 RUN go get github.com/robmehring/MyApplication/main
 RUN cd /build
-RUN git clone https://robmehring@gmail.com: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@github.com/robmehring/MyApplication.git
+RUN git clone https://robmehring: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@github.com/robmehring/MyApplication.git
 
 RUN cd /build/MyApplication/main
 RUN go build
