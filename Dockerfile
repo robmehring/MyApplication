@@ -1,15 +1,13 @@
 FROM golang:latest
 
-RUN mkdir /build
-WORKDIR /build
+RUN mkdir -p /app
 
-RUN go get github.com/robmehring/MyApplication/main
-RUN cd /build
-RUN git clone https://github.com/robmehring/MyApplication.git
+WORKDIR /app
 
-RUN cd /build/MyApplication/main
-RUN go build
+ADD . /app
+
+RUN go build ./main.go
 
 EXPOSE 8000
 
-ENTRYPOINT ["/build/MyApplication/main/main"]
+CMD ["./main"]
